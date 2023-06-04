@@ -13,12 +13,7 @@ export function Home(){
     const [listToShow, setListToShow] = useState([]);
     const list = [showName, showDescription, showBrand, showPrice, showImage, showAuthor, showRating, showOrigin]
     useEffect(() => {
-        loadListToShow();
     }, [])
-
-    function loadListToShow(){
-        setListToShow(list.filter(x => x === true));
-    }
 
     function selectButton(name){
         if(listToShow.includes(name)){
@@ -47,6 +42,15 @@ export function Home(){
         )
     })
 
+    const allInput = listToShow.map((each, index) => {
+        return (
+            <div>
+                <p>{each}</p>
+                <input type="text" placeholder="{each}" /> 
+            </div>
+                   )
+    })
+
     return (
         <div>
             <h1>
@@ -56,7 +60,7 @@ export function Home(){
                 {allButton}
             </form>
             <div>
-                {allList}
+                {allInput}
             </div>
         </div>
 
