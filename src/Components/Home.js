@@ -46,20 +46,19 @@ export function Home(){
     const list = ["Name", "Description", "Brand", "Price", "Image", "Author", "Rating", "Origin"]
 
     function selectButton(name){
-        // if(listToShow.includes(list.find(each => Object.keys(each) === Object.values(name)[0]))){
-        // list.find(each => Object.keys(each) === Object.values(name)[0])
         if(listToShow.filter(each => each === name).length > 0){
             const newList = listToShow.filter(each => each !== name)
             setListToShow(newList)
-            console.log("yes")
         }
         else{
-            console.log("no")
             const newList = [...listToShow];
-            console.log(newList.indexOf(list.find(each => each === name)))
             newList.push(list.find(each => each === name));
             setListToShow(newList);
         }
+    }
+
+    function ConfirmFields(e){
+        e.preventDefault();
     }
 
     const allButton = list.map((each, index) =>{return (
@@ -74,8 +73,9 @@ export function Home(){
             <h1>
                 Please choose
             </h1>
-            <form style={{display:"flex", flexDirection:"column"}}>
+            <form>
                 {allButton}
+                <div  style={{display:"flex", flexDirection:"column"}}>
                 <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler}/> </div>
                 <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler}/> </div>
                 <div style={listToShow.includes("Brand") ? {display:"block"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler}/> </div>
@@ -84,6 +84,8 @@ export function Home(){
                 <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler}/> </div>
                 <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler}/> </div>
                 <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler}/> </div>
+                </div>
+                <input type="submit" onClick={ConfirmFields}/>
             </form>
         </div>
 
