@@ -19,7 +19,7 @@ export function Home(){
 
     const [showPrice, setShowPrice] = useState("");
     function priceHandler(e){
-        setShowPrice(e.target.value)
+        setShowPrice(parseInt(e.target.value))
     }
 
     const [showImage, setShowImage] = useState("");
@@ -34,7 +34,7 @@ export function Home(){
 
     const [showRating, setShowRating] = useState("");
     function ratingHandler(e){
-        setShowRating(e.target.value)
+        setShowRating(parseInt(e.target.value))
     }
 
     const [showOrigin, setShowOrigin] = useState("");
@@ -48,9 +48,24 @@ export function Home(){
         setLockFields(true);
     }
 
+    const [listToShow, setListToShow] = useState([]);
+
+    
+    async function CopyToClipboard (){
+        await navigator.clipboard.writeText(JSON.stringify(json, null, 2))
+        alert("copied")
+    }
+
     const [json, setJson] = useState([])
 
-    const [listToShow, setListToShow] = useState([]);
+    const fieldsList = listToShow.map((each, index) => {
+        return (
+            <li key={index}>
+                {each}
+            </li>
+        )
+    })
+
 
     const list = ["Name", "Description", "Brand", "Price", "Image", "Author", "Rating", "Origin"]
     const listValue = [{"Name": showName}, {"Description" : showDescription}, {"Brand" : showBrand}, {"Price" : showPrice}, {"Image" : showImage}, {"Author" : showAuthor}, {"Rating" : showRating}, {"Origin" : showOrigin}];
@@ -96,24 +111,39 @@ export function Home(){
             <div style={{display:"flex", justifyContent:"space-around"}}>
                 {allButton}
             </div> 
-            <input type="submit" onClick={handleLockFields} value="Confirm"/>
-            <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
-                <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler}/> </div>
-                <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler}/> </div>
-                <div style={listToShow.includes("Brand") ? {display:"block"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler}/> </div>
-                <div style={listToShow.includes("Price") ? {display:"block"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler}/> </div>
-                <div style={listToShow.includes("Image") ? {display:"block"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler}/> </div>
-                <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler}/> </div>
-                <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler}/> </div>
-                <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler}/> </div>
-            </div>
-            <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
-                <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+            <div>
+                <h2>
+                    Selected fields
+                </h2>
+                <ul>
+                    {fieldsList}
+                </ul>
 
             </div>
-            <pre style={{backgroundColor:"#D3D3D3", width:"480px", height:"320px"}}>
+            <input type="submit" onClick={handleLockFields} value="Confirm"/>
+            {lockFields ? 
+            <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
+                <div style={listToShow.includes("Name") ? {display:"flex"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler}/> </div>
+                <div style={listToShow.includes("Description") ? {display:"flex"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler}/> </div>
+                <div style={listToShow.includes("Brand") ? {display:"flex"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler}/> </div>
+                <div style={listToShow.includes("Price") ? {display:"flex"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler}/> </div>
+                <div style={listToShow.includes("Image") ? {display:"flex"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler}/> </div>
+                <div style={listToShow.includes("Author") ? {display:"flex"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler}/> </div>
+                <div style={listToShow.includes("Rating") ? {display:"flex"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler}/> </div>
+                <div style={listToShow.includes("Origin") ? {display:"flex"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler}/> </div>
+            </div> : null}
+            <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
+                <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+            </div>
+            <div>
+                
+            </div>
+            <button style={{}} onClick={CopyToClipboard}>
+                    Copy to clipboard
+                </button>
+            <pre style={{backgroundColor:"#D3D3D3", width:"480px", height:"320px", whiteSpace:"pre-wrap", overflow:"scroll"}}>
                 <code>
-                    {JSON.stringify(json)}
+                {JSON.stringify(json, null, 2)}
                 </code>
             </pre>
         </div>
