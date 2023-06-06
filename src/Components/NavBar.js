@@ -9,10 +9,13 @@ export function NarBar(){
             </Link>
             <div style={{paddingRight:"10px"}}>
                 <a>
-                    <Link to={"/contact"} style={{textDecoration:"none", color:"black", paddingRight:"10px"}}>hi</Link>
+                    <Link to={"/"} style={{textDecoration:"none", color:"black", paddingRight:"10px"}}>Home</Link>
                 </a>
                 <a>
-                    <Link to={"/"} style={{textDecoration:"none", color:"black"}}>Home page</Link>
+                    <Link to={"/customjson"} style={{textDecoration:"none", color:"black", paddingRight:"10px"}}>Create</Link>
+                </a>
+                <a>
+                    <Link to={"/contact"} style={{textDecoration:"none", color:"black"}}>Contact</Link>
                 </a>
             </div>
         </div>
