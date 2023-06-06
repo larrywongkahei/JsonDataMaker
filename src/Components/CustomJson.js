@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function Home(){
+export function CustomJson(){
 
     const [showName, setShowName] = useState("");
     function nameHandler(e){
