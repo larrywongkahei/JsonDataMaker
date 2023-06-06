@@ -110,7 +110,7 @@ export function Home(){
     )})
 
     return (
-        <div>
+        <div style={{paddingLeft:"20px", paddingRight:"20px"}}>
             <h1>
                 Please choose
             </h1>  
