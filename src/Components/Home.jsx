@@ -17,20 +17,22 @@ export function Home(){
                     <td>
                         <pre style={{width:"670px", backgroundColor:"grey", height:"180px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", overflow:"scroll"}}>
                             <code style={{backgroundColor:"grey"}}>
-                                using (HttpClient client = new HttpClient())&#123;<br /><br />
-                                &nbsp;using (HttpResponseMessage res = await client.GetAsync(baseURL))&#123;<br /><br />
-                                &nbsp;&nbsp;using (HttpContent content = res.Content)&#123;<br /><br />
-                                &nbsp;&nbsp;&nbsp;string data = await content.ReadAsStringAsync();<br /><br />
-                                &nbsp;&nbsp;&nbsp;#Do whatever you want with the jsondata<br /><br />
+                                try &#123;<br /><br />
+                                &nbsp;using (HttpClient client = new HttpClient())&#123;<br /><br />
+                                &nbsp;&nbsp;using (HttpResponseMessage res = await client.GetAsync("The endpoint here"))&#123;<br /><br />
+                                &nbsp;&nbsp;&nbsp;using (HttpContent content = res.Content)&#123;<br /><br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;string data = await content.ReadAsStringAsync();<br /><br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;#Do whatever you want with the jsondata<br /><br />
+                                &nbsp;&nbsp;&nbsp;&#125;<br /><br />
                                 &nbsp;&nbsp;&#125;<br /><br />
-                                &nbsp;&#125;<br /><br />
+                                &nbsp;&#125;
+                                catch(Exception exception) &#123;<br /><br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(exception);<br /><br />
                                 &#125;
                             </code>
                         </pre>
                     </td>
                 </tr>
-                </table>
-                <table style={{width:"100%"}}>
                 <tr>
                     <td style={{textAlign:"center", width:"30%", borderRight:"1px solid white"}}>
                         Javascript
@@ -45,8 +47,6 @@ export function Home(){
                         </pre>
                     </td>
                 </tr>
-                </table>
-                <table style={{width:"100%"}}>
                 <tr>
                     <td style={{textAlign:"center", width:"30%", borderRight:"1px solid white"}}>
                         Python
