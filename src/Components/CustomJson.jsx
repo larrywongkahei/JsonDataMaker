@@ -73,15 +73,17 @@ export function CustomJson(){
     const listValue = [{"Name": showName}, {"Description" : showDescription}, {"Brand" : showBrand}, {"Price" : showPrice}, {"Image" : showImage}, {"Author" : showAuthor}, {"Rating" : showRating}, {"Origin" : showOrigin}];
 
     function selectButton(name){
-        if(listToShow.filter(each => each === name).length > 0){
-            const newList = listToShow.filter(each => each !== name)
-            setListToShow(newList)
-        }
-        else{
-            const newList = [...listToShow];
-            newList.push(list.find(each => each === name));
-            setListToShow(newList);
-        }
+        if(!lockFields){
+            if(listToShow.filter(each => each === name).length > 0){
+                const newList = listToShow.filter(each => each !== name)
+                setListToShow(newList)
+            }
+            else{
+                const newList = [...listToShow];
+                newList.push(list.find(each => each === name));
+                setListToShow(newList);
+            }
+    }
     }
 
     function ConfirmFields(e){
@@ -102,11 +104,16 @@ export function CustomJson(){
     }
 
     const allButton = list.map((each, index) =>{return (
-        <div style={{display:"flex"}} key={index}>
-            {lockFields ? <input type="checkbox" onClick={() => selectButton(each)} disabled="disabled"/> : 
-            <input type="checkbox" onClick={() => selectButton(each)} /> }
-            <p>{each}</p>
+        <div>
+            {listToShow.includes(each)? <div style={{display:"flex", backgroundColor:"red", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>
+             :
+            <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>}
         </div>
+        // <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}>
+        //     {lockFields ? <input type="checkbox" disabled="disabled"/> : 
+        //     <input type="checkbox" /> }
+        //     <p>{each}</p>
+        // </div>
     )})
 
     return (
