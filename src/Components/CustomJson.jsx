@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsFillClipboardFill } from "react-icons/bs";
 
 export function CustomJson(){
 
@@ -105,19 +106,14 @@ export function CustomJson(){
 
     const allButton = list.map((each, index) =>{return (
         <div>
-            {listToShow.includes(each)? <div style={{display:"flex", backgroundColor:"red", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>
+            {listToShow.includes(each)? <div style={{display:"flex", backgroundColor:"red", width:"130px", borderRadius:"50px", cursor:"pointer", justifyContent:"center"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>
              :
-            <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>}
+            <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"50px", cursor:"pointer", justifyContent:"center"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>}
         </div>
-        // <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"20px", cursor:"pointer"}} onClick={() => selectButton(each)} key={index}>
-        //     {lockFields ? <input type="checkbox" disabled="disabled"/> : 
-        //     <input type="checkbox" /> }
-        //     <p>{each}</p>
-        // </div>
     )})
 
     return (
-        <div style={{paddingLeft:"20px", paddingRight:"20px"}}>
+        <div style={{paddingLeft:"20px", paddingRight:"20px", paddingBottom:"20px"}}>
             <h1>
                 Please choose
             </h1>  
@@ -133,28 +129,31 @@ export function CustomJson(){
                 </ul>
 
             </div>
-            <input type="submit" onClick={handleLockFields} value="Confirm"/>
+            {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked"/>
+            : <input type="submit" onClick={handleLockFields} value="Lock"/>}
             {lockFields ? 
             <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
-                <div style={listToShow.includes("Name") ? {display:"flex"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler}/> </div>
-                <div style={listToShow.includes("Description") ? {display:"flex"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler}/> </div>
-                <div style={listToShow.includes("Brand") ? {display:"flex"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler}/> </div>
-                <div style={listToShow.includes("Price") ? {display:"flex"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler}/> </div>
-                <div style={listToShow.includes("Image") ? {display:"flex"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler}/> </div>
-                <div style={listToShow.includes("Author") ? {display:"flex"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler}/> </div>
-                <div style={listToShow.includes("Rating") ? {display:"flex"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler}/> </div>
-                <div style={listToShow.includes("Origin") ? {display:"flex"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler}/> </div>
+                <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Brand") ? {display:"block"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Price") ? {display:"block"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Image") ? {display:"block"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
+                    <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+                </div>
             </div> : null}
-            <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
-                <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
-            </div>
+
             <div>
                 
             </div>
-            <button style={{}} onClick={CopyToClipboard}>
-                    Copy to clipboard
-                </button>
-            <pre style={{backgroundColor:"#D3D3D3", width:"480px", height:"320px", whiteSpace:"pre-wrap", overflow:"scroll"}}>
+            <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", margin:"auto", position:"relative"}}>
+                <div style={{display:"flex", position:"absolute", top:"0px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
+                    <p>Copy </p>
+                    <BsFillClipboardFill size={17}/>
+                </div>
                 <code>
                 {JSON.stringify(json, null, 2)}
                 </code>
