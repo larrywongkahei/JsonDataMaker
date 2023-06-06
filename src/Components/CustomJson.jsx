@@ -149,7 +149,7 @@ export function CustomJson(){
             <div>
                 
             </div>
-            <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", margin:"auto", position:"relative"}}>
+            <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", margin:"auto", position:"relative", marginTop:"30px"}}>
                 <div style={{display:"flex", position:"absolute", top:"0px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
                     <p>Copy </p>
                     <BsFillClipboardFill size={17}/>
