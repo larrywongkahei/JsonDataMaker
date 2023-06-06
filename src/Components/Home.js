@@ -42,6 +42,8 @@ export function Home(){
         setShowOrigin(e.target.value)
     }
 
+    const allHandler = [setShowName, setShowAuthor, setShowBrand, setShowDescription, setShowImage, setShowOrigin, setShowPrice, setShowRating]
+
     const [lockFields, setLockFields] = useState(false);
     function handleLockFields(e){
         e.preventDefault();
@@ -87,9 +89,13 @@ export function Home(){
         let result = {}
         listValue.forEach(each => {
             if(Object.values(each) != ""){
-                result[Object.keys(each)] = Object.values(each)[0]
+                result[Object.keys(each)] = Object.values(each)[0];
             }
         })
+        allHandler.forEach(each => {
+            each("");
+        })
+
         const newList = [...json]
         newList.push(result)
         setJson(newList);
