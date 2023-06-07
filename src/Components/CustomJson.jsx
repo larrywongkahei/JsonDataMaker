@@ -91,8 +91,10 @@ export function CustomJson(){
         e.preventDefault();
         let result = {}
         listValue.forEach(each => {
-            if(Object.values(each) != ""){
+            if(listToShow.includes(String(Object.keys(each))) && Object.values(each) != "" ){
                 result[Object.keys(each)] = Object.values(each)[0];
+            }else if(listToShow.includes(String(Object.keys(each)))){
+                result[Object.keys(each)] = null;
             }
         })
         allHandler.forEach(each => {
@@ -150,7 +152,7 @@ export function CustomJson(){
                 
             </div>
             <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", margin:"auto", position:"relative", marginTop:"30px"}}>
-                <div style={{display:"flex", position:"absolute", top:"0px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
+                <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
                     <p>Copy </p>
                     <BsFillClipboardFill size={17}/>
                 </div>

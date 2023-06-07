@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillClipboardFill } from "react-icons/bs";
 
 export function Home(){
 
@@ -10,9 +11,6 @@ export function Home(){
 
     return (
         <div>
-            <button onClick={Csharpcopy}>
-asef
-            </button>
             <h1>
                 There are three categories for now
             </h1>
@@ -25,7 +23,11 @@ asef
                         C#
                     </td>
                     <td>
-                        <pre style={{width:"670px", backgroundColor:"grey", height:"180px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", overflow:"scroll"}}>
+                        <pre style={{width:"670px", backgroundColor:"grey", height:"180px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", overflow:"scroll", position:"relative"}}>
+                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Csharpcopy}>
+                                <p>Copy </p>
+                                <BsFillClipboardFill size={17}/>
+                            </div>
                             <code style={{backgroundColor:"grey"}} id="testing">
                                 try &#123;<br /><br />
                                 &nbsp;using (HttpClient client = new HttpClient())&#123;<br /><br />
@@ -49,7 +51,11 @@ asef
                         Javascript
                     </td>
                     <td>
-                        <pre style={{width:"670px", backgroundColor:"grey", height:"70px", paddingLeft:"10px", paddingTop:"10px", margin:"auto"}}>
+                        <pre style={{width:"670px", backgroundColor:"grey", height:"70px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", position:"relative"}}>
+                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Csharpcopy}>
+                                <p>Copy </p>
+                                <BsFillClipboardFill size={17}/>
+                            </div>
                             <code style={{backgroundColor:"grey"}}>
                                 fetch("The endpoint here")<br/>
                                 .then(res => res.json())<br/>
@@ -63,7 +69,11 @@ asef
                         Python
                     </td>
                     <td>
-                        <pre style={{width:"670px", backgroundColor:"grey", height:"120px", paddingLeft:"10px", paddingTop:"10px", margin:"auto"}}>
+                        <pre style={{width:"670px", backgroundColor:"grey", height:"120px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", position:"relative"}}>
+                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Csharpcopy}>
+                                <p>Copy </p>
+                                <BsFillClipboardFill size={17}/>
+                            </div>
                             <code style={{backgroundColor:"grey"}}>
                             import requests<br /><br />
                             request = requests.get("The endpoint here")<br />
