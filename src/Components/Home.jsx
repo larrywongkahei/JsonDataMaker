@@ -5,8 +5,23 @@ export function Home(){
 
     const Csharp ="try {\n    using (HttpClient client = new HttpClient()){\n      using (HttpResponseMessage res = await client.GetAsync('The endpoint here')){\n        using (HttpContent content = res.Content){\n        string data = await content.ReadAsStringAsync();\n        // Do whatever you want with the jsondata\n        }\n      }\n    }\n  }\ncatch(Exception exception) {\nConsole.WriteLine(exception);\n}"
 
-    function Csharpcopy(){
-        navigator.clipboard.writeText(Csharp)
+    const Javascript = "fetch('The endpoint here')\n.then(res => res.json())\n.then(data => #Do whatever you want with the jsondata)"
+
+    const Python = "import requests \n\nrequest = requests.get('The endpoint here')\ndata = request.text\n//Do whatever you want with the jsondata"
+
+    async function Csharpcopy(){
+        await navigator.clipboard.writeText(Csharp)
+        alert("Copied")
+    }
+
+    async function Javascriptcopy(){
+        await navigator.clipboard.writeText(Javascript)
+        alert("Copied")
+    }
+
+    async function Pythoncopy(){
+        await navigator.clipboard.writeText(Python)
+        alert("Copied")
     }
 
     return (
@@ -52,7 +67,7 @@ export function Home(){
                     </td>
                     <td>
                         <pre style={{width:"670px", backgroundColor:"grey", height:"70px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", position:"relative"}}>
-                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Csharpcopy}>
+                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Javascriptcopy}>
                                 <p>Copy </p>
                                 <BsFillClipboardFill size={17}/>
                             </div>
@@ -70,7 +85,7 @@ export function Home(){
                     </td>
                     <td>
                         <pre style={{width:"670px", backgroundColor:"grey", height:"120px", paddingLeft:"10px", paddingTop:"10px", margin:"auto", position:"relative"}}>
-                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Csharpcopy}>
+                            <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={Pythoncopy}>
                                 <p>Copy </p>
                                 <BsFillClipboardFill size={17}/>
                             </div>
