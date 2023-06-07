@@ -113,31 +113,30 @@ export function CustomJson(){
 
     const allButton = list.map((each, index) =>{return (
         <div>
-            {listToShow.includes(each)? <div style={{display:"flex", backgroundColor:"red", width:"130px", borderRadius:"50px", cursor:"pointer", justifyContent:"center"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>
+            {listToShow.includes(each)? <div style={{display:"flex", backgroundColor:"darkslategrey", width:"130px", borderRadius:"50px", cursor:"pointer", justifyContent:"center"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>
              :
             <div style={{display:"flex", backgroundColor:"grey", width:"130px", borderRadius:"50px", cursor:"pointer", justifyContent:"center"}} onClick={() => selectButton(each)} key={index}><p>{each}</p></div>}
         </div>
     )})
 
     return (
-        <div style={{paddingLeft:"20px", paddingRight:"20px", paddingBottom:"20px"}}>
-            <h1>
-                Please choose
-            </h1>  
-            <div style={{display:"flex", justifyContent:"space-around"}}>
+        <div style={{paddingLeft:"120px", paddingRight:"120px", paddingBottom:"20px"}}>
+            <h2>
+                Choose
+            </h2>  
+            <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap", gap:"20px", marginLeft:"30px", marginRight:"30px"}}>
                 {allButton}
             </div> 
             <div>
-                <h2>
+                <h2 style={{marginTop:"30px"}}>
                     Selected fields
                 </h2>
                 <ul>
                     {fieldsList}
                 </ul>
-
-            </div>
-            {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked"/>
+                {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked"/>
             : <input type="submit" onClick={handleLockFields} value="Lock"/>}
+            </div>
             {lockFields ? 
             <div style={{display:"flex", justifyContent:"space-around"}}>
                 <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
@@ -151,10 +150,10 @@ export function CustomJson(){
                     <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler} style={{borderRadius:"20px", height:"30px", width:"240px", textAlign:"center"}}/> </div>
                     <div style={listToShow.includes("Category") ? {display:"block"} : {display : "none"}}> <p>Input Category</p> <input type="text" value={showCategory} onChange={categoryHandler} style={{borderRadius:"20px", height:"30px", width:"240px", textAlign:"center"}}/> </div>
                     <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
-                        <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+                        <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block", height:"45px", borderRadius:"30px", width:"89px"} : {display:"none"}}/>
                     </div>
                 </div>
-                <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", position:"relative", marginTop:"30px"}}>
+                <pre style={{backgroundColor:"grey", width:"480px", height:"320px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", position:"relative", marginTop:"30px"}}>
                     <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
                         <p>Copy </p>
                         <BsFillClipboardFill size={17}/>
