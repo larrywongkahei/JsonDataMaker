@@ -37,10 +37,10 @@ export function Home(){
             </h1>
             <hr style={{marginLeft:"20%", marginRight:"20%", marginBottom:"30px"}}/>
             <div style={{display:"flex", justifyContent:"space-evenly"}}>
-                <button style={{height:"120px", width:"120px", borderRadius:"30%"}} onClick={() => showTutorialButtonHandler("Products")}>
+                <button style={{height:"120px", width:"120px", borderRadius:"30%", fontSize:"20px", backgroundColor:"#CCCCCC", border:"none"}} onClick={() => showTutorialButtonHandler("Products")}>
                     Products
                 </button>
-                <button style={{height:"120px", width:"120px", borderRadius:"30%"}} onClick={() => showTutorialButtonHandler("Users")}>
+                <button style={{height:"120px", width:"120px", borderRadius:"30%", fontSize:"20px", backgroundColor:"#CCCCCC", border:"none"}} onClick={() => showTutorialButtonHandler("Users")}>
                     Users
                 </button>
             </div>
