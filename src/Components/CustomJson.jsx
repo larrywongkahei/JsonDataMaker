@@ -18,6 +18,11 @@ export function CustomJson(){
         setShowBrand(e.target.value)
     }
 
+    const [showCategory, setCategory] = useState("");
+    function categoryHandler(e){
+        setCategory(e.target.value)
+    }
+
     const [showPrice, setShowPrice] = useState("");
     function priceHandler(e){
         setShowPrice(parseInt(e.target.value))
@@ -43,7 +48,7 @@ export function CustomJson(){
         setShowOrigin(e.target.value)
     }
 
-    const allHandler = [setShowName, setShowAuthor, setShowBrand, setShowDescription, setShowImage, setShowOrigin, setShowPrice, setShowRating]
+    const allHandler = [setShowName, setShowAuthor, setShowBrand, setShowDescription, setShowImage, setShowOrigin, setShowPrice, setShowRating, setCategory]
 
     const [lockFields, setLockFields] = useState(false);
     function handleLockFields(e){
@@ -70,8 +75,8 @@ export function CustomJson(){
     })
 
 
-    const list = ["Name", "Description", "Brand", "Price", "Image", "Author", "Rating", "Origin"]
-    const listValue = [{"Name": showName}, {"Description" : showDescription}, {"Brand" : showBrand}, {"Price" : showPrice}, {"Image" : showImage}, {"Author" : showAuthor}, {"Rating" : showRating}, {"Origin" : showOrigin}];
+    const list = ["Name", "Description", "Brand", "Price", "Image", "Author", "Rating", "Origin", "Category"]
+    const listValue = [{"Name": showName}, {"Description" : showDescription}, {"Brand" : showBrand}, {"Price" : showPrice}, {"Image" : showImage}, {"Author" : showAuthor}, {"Rating" : showRating}, {"Origin" : showOrigin}, {"Category" : showCategory}];
 
     function selectButton(name){
         if(!lockFields){
@@ -143,6 +148,7 @@ export function CustomJson(){
                 <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
                 <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
                 <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                <div style={listToShow.includes("Category") ? {display:"block"} : {display : "none"}}> <p>Input Category</p> <input type="text" value={showCategory} onChange={categoryHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
                 <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
                     <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
                 </div>
