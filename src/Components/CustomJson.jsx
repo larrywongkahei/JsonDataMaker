@@ -25,7 +25,7 @@ export function CustomJson(){
 
     const [showPrice, setShowPrice] = useState("");
     function priceHandler(e){
-        setShowPrice(parseInt(e.target.value))
+        setShowPrice(e.target.value)
     }
 
     const [showImage, setShowImage] = useState("");
@@ -139,33 +139,31 @@ export function CustomJson(){
             {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked"/>
             : <input type="submit" onClick={handleLockFields} value="Lock"/>}
             {lockFields ? 
-            <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
-                <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Brand") ? {display:"block"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Price") ? {display:"block"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Image") ? {display:"block"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={listToShow.includes("Category") ? {display:"block"} : {display : "none"}}> <p>Input Category</p> <input type="text" value={showCategory} onChange={categoryHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
-                <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
-                    <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+            <div style={{display:"flex", justifyContent:"space-around"}}>
+                <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
+                    <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Brand") ? {display:"block"} : {display : "none"}}> <p>Input Brand</p> <input type="text" value={showBrand} onChange={brandHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Price") ? {display:"block"} : {display : "none"}}> <p>Input Price</p> <input type="text" value={showPrice} onChange={priceHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Image") ? {display:"block"} : {display : "none"}}> <p>Input Image</p> <input type="text" value={showImage} onChange={imageHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Author") ? {display:"block"} : {display : "none"}}> <p>Input Author</p> <input type="text" value={showAuthor} onChange={authorHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Rating") ? {display:"block"} : {display : "none"}}> <p>Input Rating</p> <input type="text" value={showRating} onChange={ratingHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Origin") ? {display:"block"} : {display : "none"}}> <p>Input Origin</p> <input type="text" value={showOrigin} onChange={originHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={listToShow.includes("Category") ? {display:"block"} : {display : "none"}}> <p>Input Category</p> <input type="text" value={showCategory} onChange={categoryHandler} style={{borderRadius:"20px", height:"30px", width:"240px"}}/> </div>
+                    <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
+                        <input type="submit" onClick={ConfirmFields} value="Enter" style={listToShow.length > 0 ? {display:"block"} : {display:"none"}}/>
+                    </div>
                 </div>
+                <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", position:"relative", marginTop:"30px"}}>
+                    <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
+                        <p>Copy </p>
+                        <BsFillClipboardFill size={17}/>
+                    </div>
+                    <code>
+                    {JSON.stringify(json, null, 2)}
+                    </code>
+                </pre>
             </div> : null}
-
-            <div>
-                
-            </div>
-            <pre style={{backgroundColor:"grey", width:"480px", height:"230px", whiteSpace:"pre-wrap", overflow:"scroll", paddingTop:"10px", paddingLeft:"20px", paddingRight:"20px", paddingBottom:"10px", margin:"auto", position:"relative", marginTop:"30px"}}>
-                <div style={{display:"flex", position:"absolute", top:"-6px", right:"5px", justifyItems:"center", alignItems:"center", cursor:"pointer"}} onClick={CopyToClipboard}>
-                    <p>Copy </p>
-                    <BsFillClipboardFill size={17}/>
-                </div>
-                <code>
-                {JSON.stringify(json, null, 2)}
-                </code>
-            </pre>
         </div>
 
     )
