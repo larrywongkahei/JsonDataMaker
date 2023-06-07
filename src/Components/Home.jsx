@@ -97,8 +97,8 @@ export function Home(){
                             </div>
                             <code style={{backgroundColor:"grey"}}>
                                 fetch("The endpoint here")<br/><br />
-                                .then(res => res.json())<br/><br />
-                                .then(data => #Do whatever you want with the jsondata)
+                                .then(res =&#62; res.json())<br/><br />
+                                .then(data =&#62; #Do whatever you want with the jsondata)
                             </code>
                         </pre>
                     </td>
