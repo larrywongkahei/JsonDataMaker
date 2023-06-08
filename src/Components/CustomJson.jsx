@@ -127,18 +127,23 @@ export function CustomJson(){
             <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap", gap:"20px", marginLeft:"30px", marginRight:"30px"}}>
                 {allButton}
             </div> 
-            <div>
-                <h2 style={{marginTop:"30px"}}>
-                    Selected fields
-                </h2>
-                <ul style={{fontSize:"20px"}}>
-                    {fieldsList}
-                </ul>
-                {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>
-            : <input type="submit" onClick={handleLockFields} value="Lock" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>}
+            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"40px"}}>
+                <div>
+                    <h2 style={{marginTop:"30px"}}>
+                        Selected fields
+                    </h2>
+                    <ul style={{fontSize:"20px"}}>
+                        {fieldsList}
+                    </ul>
+                    {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>
+                : <input type="submit" onClick={handleLockFields} value="Lock" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>}
+                </div>
+                <div style={{background:"#363636", display:"flex", paddingLeft:"40px", paddingRight:"40px", borderRadius:"10px"}}>
+                    <h3 style={{alignSelf:"center"}}>Press <code>Lock</code> after choosing fields to proceed</h3>
+                </div>
             </div>
             {lockFields ? 
-            <div style={{display:"flex", justifyContent:"space-around"}}>
+            <div style={{display:"flex", justifyContent:"space-around", marginTop:"40px"}}>
                 <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
                     <div style={listToShow.includes("Name") ? {display:"block"} : {display : "none"}}> <p>Input Name</p> <input type="text" value={showName} onChange={nameHandler} style={{borderRadius:"20px", height:"30px", width:"240px", textAlign:"center"}}/> </div>
                     <div style={listToShow.includes("Description") ? {display:"block"} : {display : "none"}}> <p>Input Description</p> <input type="text" value={showDescription} onChange={descriptionHandler} style={{borderRadius:"20px", height:"30px", width:"240px", textAlign:"center"}}/> </div>
