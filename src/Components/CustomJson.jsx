@@ -122,7 +122,7 @@ export function CustomJson(){
     return (
         <div style={{paddingLeft:"120px", paddingRight:"120px", paddingBottom:"20px"}}>
             <h2>
-                Choose
+                Pick fields for your Json data
             </h2>  
             <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap", gap:"20px", marginLeft:"30px", marginRight:"30px"}}>
                 {allButton}
