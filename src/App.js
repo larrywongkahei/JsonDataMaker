@@ -11,7 +11,7 @@ function App() {
     <Router className="App">
       <NarBar />
       <Routes>
-        <Route path='/' element = {<Home />} />
+        <Route path='/*' element = {<Home />} />
         <Route path='/customjson' element={<CustomJson />} />
       </Routes>
     </Router>

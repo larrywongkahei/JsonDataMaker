@@ -131,11 +131,11 @@ export function CustomJson(){
                 <h2 style={{marginTop:"30px"}}>
                     Selected fields
                 </h2>
-                <ul>
+                <ul style={{fontSize:"20px"}}>
                     {fieldsList}
                 </ul>
-                {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked"/>
-            : <input type="submit" onClick={handleLockFields} value="Lock"/>}
+                {lockFields ? <input type="submit" onClick={handleLockFields} value="Locked" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>
+            : <input type="submit" onClick={handleLockFields} value="Lock" style={{width:"90px", borderRadius:"10px", height:"40px", marginLeft:"15px"}}/>}
             </div>
             {lockFields ? 
             <div style={{display:"flex", justifyContent:"space-around"}}>
