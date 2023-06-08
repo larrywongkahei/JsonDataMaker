@@ -32,8 +32,8 @@ export function Home(){
 
     return (
         <div>
-            <h1 style={{textAlign:'center'}}>
-                Here is two simple Json data you could use
+            <h1 style={{textAlign:'center', marginBottom:"0px"}}>
+                Here are two simple Json data you could use for free
             </h1>
             <hr style={{marginLeft:"20%", marginRight:"20%", marginBottom:"30px"}}/>
             <div style={{display:"flex", justifyContent:"space-evenly"}}>
@@ -47,15 +47,19 @@ export function Home(){
             {showTutorial != "" ? 
             <div style={{backgroundColor:"grey", marginLeft:"15%", marginRight:"15%", paddingTop:"10px", paddingBottom:"20px", paddingLeft:"40px", marginTop:"30px", borderRadius:"5px"}}>
                 <h3>
-                    Tutorial
+                    Endpoints
                 </h3>
                 <p style={{fontSize:"18px"}}>
-                    Fetch all {showTutorial} : <code>https://imagesbackend.herokuapp.com/api/{showTutorial.toLowerCase()}</code>
+                    To fetch all {showTutorial} : <code>https://imagesbackend.herokuapp.com/api/{showTutorial.toLowerCase()}</code>
                 </p>
                 <p style={{fontSize:"18px"}}>
-                    Fetch certain number of {showTutorial} : <code>https://imagesbackend.herokuapp.com/api/{showTutorial.toLowerCase()}/&#123;Number&#125;</code>
+                    To fetch certain number of {showTutorial} : <code>https://imagesbackend.herokuapp.com/api/{showTutorial.toLowerCase()}/&#123;Number&#125;</code>
                 </p>
             </div> : null}
+            <h1 style={{textAlign:"center", marginBottom:"0px"}}>
+                Tutorial
+            </h1>
+            <hr style={{marginLeft:"20%", marginRight:"20%", marginBottom:"30px"}}/>
             <table style={{width:"100%", borderSpacing:"30px"}}>
                 <tr>
                     <td style={{textAlign:"center", width:"30%", borderRight:"1px solid white", fontSize:"24px", fontWeight:"bold"}}>

@@ -10,10 +10,10 @@ function App() {
   return (
     <Router className="App">
       <NarBar />
-     <Routes>
+      <Routes>
         <Route path='/' element = {<Home />} />
         <Route path='/customjson' element={<CustomJson />} />
-     </Routes>
+      </Routes>
     </Router>
   );
 }
