@@ -15,4 +15,4 @@ There are two endpoints completely free to use and license free for now.
 
 ## Other
 
-For more informations, please visit
+For more informations, please email makemak123@gmail.com
