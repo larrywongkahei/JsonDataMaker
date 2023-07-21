@@ -13,6 +13,10 @@ There are two endpoints completely free to use and license free for now.
 * #### Products https://imagesbackend.herokuapp.com/api/products
 * #### Users https://imagesbackend.herokuapp.com/api/users
 
+## Redirect
+
+<a href="https://larrywongkahei.github.io/JsonDataMaker/">To the page</a>
+
 ## Other
 
 For more informations, please email makemak123@gmail.com
